@@ -35,7 +35,7 @@ Página sem trava, sem timer e sem player: abre inteira e rola normalmente. Barr
 
 ## Imagens
 Fotos pequenas (~265×360) só servem na galeria pequena. Em destaques use fotos com ~1000px de largura.
-Vídeos do Bruninho (a enviar): clipes curtos, mudos, em loop, com poster `.jpg`; entram na seção "Conteúdo" (há um comentário marcando o lugar).
+Vídeos do Bruninho: clipes curtos, mudos, em loop, com poster `.jpg` (H.264, ~1 MB no máximo; vídeos de celular em 4K/HEVC devem ser convertidos com ffmpeg). Hoje há `web/bruninho-take.mp4` na seção "Conteúdo" (toca só quando visível). Mais clipes entram ali, no mesmo formato.
 
 ## Convenções
 - Marcadores `class="todo-inline"` indicam texto pendente do cliente.

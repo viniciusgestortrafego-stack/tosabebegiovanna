@@ -75,7 +75,7 @@ h2{font-size:clamp(28px,5vw,42px)}
 
 /* ============ IMAGENS ============ */
 .fig{margin:36px 0 0;border-radius:var(--r);overflow:hidden;background:var(--paper-2)}
-.fig img{width:100%;height:auto}
+.fig img,.fig video{width:100%;height:auto}
 .fig figcaption{padding:12px 16px;font-size:14px;color:var(--ink-soft);background:var(--card)}
 .dark .fig figcaption{background:var(--char-2);color:#B9B0A1}
 .fig.narrow{max-width:460px;margin-inline:auto}
@@ -284,8 +284,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <li><small>Etapa 04</small><b>Acabamento e finalização</b><span>Os detalhes que padronizam o resultado, para você repetir a cada atendimento.</span></li>
       <li><small>Etapa 05</small><b>Rostinho redondo</b><span>A construção do rosto redondo, passo a passo.</span></li>
     </ol>
-    <!-- Vídeos curtos do Bruninho entram aqui (clipes mudos em loop), quando os arquivos forem enviados -->
-    <figure class="fig narrow rv"><img src="web/shihtzu-laco-roxo.jpg" alt="Bruninho, Shih Tzu macho, com a tosa bebê finalizada" loading="lazy" style="object-position:50% 55%"><figcaption>O Bruninho, acompanhado do início ao fim no curso.</figcaption></figure>
+    <!-- Mais vídeos curtos do Bruninho (clipes mudos em loop) podem entrar aqui, no mesmo formato -->
+    <figure class="fig rv"><video id="take" muted loop playsinline preload="metadata" poster="web/bruninho-take-poster.jpg" aria-label="Bruninho, Shih Tzu macho, com a tosa bebê finalizada"><source src="web/bruninho-take.mp4" type="video/mp4"></video><figcaption>O Bruninho, acompanhado do início ao fim no curso.</figcaption></figure>
     <p class="rv" style="margin-top:30px"><b>Cerca de 2 horas</b> de conteúdo direto ao ponto, para você assistir, aplicar e voltar nas aulas quando precisar.</p>
     <div class="cta-row"><a class="btn js-cta" href="#oferta">Quero aprender a técnica <svg><use href="#i-arrow"/></svg></a><p class="btn-note">Acesso por 1 ano · Garantia de 7 dias</p></div>
   </div>
@@ -508,6 +508,12 @@ wa.addEventListener("click", () => trackWhatsApp("oferta"));
     });
   }, { passive: true });
 })();
+
+/* Clipe do Bruninho: toca só quando visível (mudo, em loop, sem controles) */
+const take = document.getElementById("take");
+if (take && "IntersectionObserver" in window) {
+  new IntersectionObserver(es => es.forEach(e => e.isIntersecting ? take.play().catch(() => {}) : take.pause()), { threshold: .4 }).observe(take);
+}
 
 /* Barra de progresso de leitura */
 const prog = document.getElementById("progress");
