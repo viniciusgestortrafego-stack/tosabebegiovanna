@@ -18,8 +18,8 @@ Imagens/vídeos da Amora e de cães com penteado não entram aqui (ex.: `shihtzu
 Não há `package.json`, framework nem testes. Para conferir, abra o `index.html` no navegador (Playwright já está instalado no ambiente cloud).
 
 ## Deploy
-Site à parte, em domínio próprio na **Hostinger**, conectado a este repositório com implantação automática.
-**Pendente:** definir domínio e a branch que a Hostinger publica, e registrar aqui. Mudanças: branch de trabalho → PR → merge nessa branch.
+Site à parte, em subdomínio próprio na **Hostinger** (`tosabebê.groomergiorivaroli.com.br`; no DNS o "ê" vira punycode, e `tosabebe` sem acento é mais seguro, a confirmar), conectado a este repositório com implantação automática. Checkout na Hotmart; garantia de 7 dias.
+**Pendente:** definir a branch que a Hostinger publica (provavelmente `main`) e registrar aqui. Mudanças: branch de trabalho → PR para `main` → merge. Se a Hostinger publicar outra branch, atualizá-la depois do merge sem reescrever histórico.
 
 ## Configuração (bloco `CONFIG` no `<script>` do fim da página)
 - `checkoutUrl`: checkout da Hotmart (`https://pay.hotmart.com/B108393974V?checkoutMode=10`, o mesmo link do site irmão; o valor cobrado é definido na Hotmart e deve ser R$ 127 / 12x R$ 13,13). Usado só no botão da caixa de preço; os demais botões rolam até `#oferta`. Se vazio, o botão não leva a lugar nenhum.
