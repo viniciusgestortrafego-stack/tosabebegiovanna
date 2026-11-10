@@ -130,7 +130,10 @@ h2{font-size:clamp(28px,5vw,42px)}
 .facts-list li{display:flex;gap:12px;font-size:16.5px;color:#D8D0C2}
 .facts-list svg{flex:none;width:20px;height:20px;color:var(--sand);margin-top:4px}
 .duo{display:grid;gap:14px;grid-template-columns:1fr 1fr;margin-top:30px}
-.duo .fig{margin:0}
+.duo .fig{margin:0;aspect-ratio:1/1}
+.duo .fig img{width:100%;height:100%;object-fit:cover}
+.duo.stack .fig{aspect-ratio:auto}
+.duo.stack .fig img{height:auto;object-fit:fill}
 .duo.stack{align-items:start}
 @media(max-width:599px){.duo.stack{grid-template-columns:1fr}}
 
@@ -318,8 +321,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <p class="pull rv">Como fazer profissionais diferentes entregarem o mesmo padrão?</p>
     <p class="rv">A resposta foi simplificar. Giovanna estruturou um passo a passo que qualquer pessoa da equipe consegue aprender e repetir. É esse processo que ela ensina na Tosa Bebê Shih Tzu.</p>
     <div class="duo rv">
-      <figure class="fig"><img src="web/giovanna-roseta-vermelha.jpg" alt="Giovanna Rivaroli comemorando premiação no Master Groom" loading="lazy" style="object-position:50% 30%"></figure>
-      <figure class="fig"><img src="web/shihtzu-colaboradora.jpg" alt="Colaboradora da GR Groomers com um Shih Tzu" loading="lazy"></figure>
+      <figure class="fig"><img src="web/giovanna-roseta-vermelha.jpg" alt="Giovanna Rivaroli comemorando premiação no Master Groom" loading="lazy" style="object-position:50% 58%"></figure>
+      <figure class="fig"><img src="web/shihtzu-bandana-abobora.jpg" alt="Shih Tzu com tosa bebê e bandana de abóboras, em pé na mesa de tosa da GR Groomers" loading="lazy" style="object-position:35% 50%"></figure>
     </div>
     <div class="awards rv">
       <div class="award"><i>1º</i><div><b>1º lugar</b><span>Master Groom · 2025</span></div></div>
