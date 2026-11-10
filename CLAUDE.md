@@ -22,7 +22,7 @@ Site à parte, em domínio próprio na **Hostinger**, conectado a este repositó
 **Pendente:** definir domínio e a branch que a Hostinger publica, e registrar aqui. Mudanças: branch de trabalho → PR → merge nessa branch.
 
 ## Configuração (bloco `CONFIG` no `<script>` do fim da página)
-- `checkoutUrl`: checkout da Hotmart **desta versão** (R$ 127). **Ainda vazio (pendente)**: enquanto estiver vazio, o botão da caixa de preço não leva a lugar nenhum. Usado só nesse botão; os demais botões rolam até `#oferta`.
+- `checkoutUrl`: checkout da Hotmart (`https://pay.hotmart.com/B108393974V?checkoutMode=10`, o mesmo link do site irmão; o valor cobrado é definido na Hotmart e deve ser R$ 127 / 12x R$ 13,13). Usado só no botão da caixa de preço; os demais botões rolam até `#oferta`. Se vazio, o botão não leva a lugar nenhum.
 - `whatsappUrl`: botão flutuante e link de dúvidas da oferta.
 
 ## Comportamento
