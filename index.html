@@ -142,8 +142,9 @@ h2{font-size:clamp(28px,5vw,42px)}
 .prints figure{margin:0;border-radius:var(--r);overflow:hidden;border:1px solid var(--line);background:#1D1B1A}
 @media(min-width:700px){.prints{grid-template-columns:1fr 1fr;align-items:start}}
 .gal{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;margin-top:26px}
-@media(min-width:700px){.gal{grid-template-columns:repeat(4,1fr)}}
+@media(min-width:700px){.gal{grid-template-columns:repeat(3,1fr)}}
 .gal .fig{margin:0;aspect-ratio:4/5;border-radius:10px}
+@media(max-width:699px){.gal .fig:last-child{grid-column:1/-1;aspect-ratio:16/10}}
 .gal img{height:100%;object-fit:cover}
 
 /* ============ OFERTA ============ */
@@ -354,7 +355,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <h3 class="rv" style="font-size:clamp(24px,3.6vw,32px);margin-top:56px">Mesmo método, cães diferentes.</h3>
     <p class="rv soft" style="margin-top:10px">Trabalhos reais da GR Groomers: o padrão se repete.</p>
     <div class="gal rv">
-      <figure class="fig"><img src="web/maltes-rosto-redondo-perfil.jpg" alt="Maltês com rosto redondo, de perfil" loading="lazy"></figure>
       <figure class="fig"><img src="web/shihtzu-rosto-redondo-frente.jpg" alt="Shih Tzu de frente, rosto redondo" loading="lazy"></figure>
       <figure class="fig"><img src="web/shihtzu-bege-pata-cilindrica-evento.jpg" alt="Shih Tzu com pata cilíndrica" loading="lazy"></figure>
       <figure class="fig"><img src="web/shihtzu-caramelo-tesoura.jpg" alt="Shih Tzu caramelo" loading="lazy"></figure>
