@@ -1,6 +1,6 @@
 # Carta de vendas – Tosa Bebê Shih Tzu (Giovanna Rivaroli)
 
-Página de vendas em formato de **carta de vendas escrita** (sem vídeo/VSL) do curso Tosa Bebê Shih Tzu da groomer Giovanna Rivaroli (GR Groomers, Guarulhos).
+Página de vendas em formato de **carta de vendas escrita**, com a **VSL no topo** (YouTube, ID `Wvw02ExL6Ug`, versão sem o módulo 2), do curso Tosa Bebê Shih Tzu da groomer Giovanna Rivaroli (GR Groomers, Guarulhos).
 Repositório irmão (VSL, no ar em https://groomergiorivaroli.com.br/): `viniciusgestortrafego-stack/giovannagroomer`.
 Todo o conteúdo, código e mensagens ao usuário em **português do Brasil**.
 
@@ -26,7 +26,11 @@ Site à parte, em subdomínio próprio na **Hostinger** (`tosabebê.groomergiori
 - `whatsappUrl`: botão flutuante e link de dúvidas da oferta.
 
 ## Comportamento
-Página sem trava, sem timer e sem player: abre inteira e rola normalmente. Barra fina de progresso de leitura no topo. Seções aparecem ao rolar (`.rv`, respeita `prefers-reduced-motion`).
+- **VSL (hero, `#vsl`)**: player do YouTube "sem cara de YouTube" (sem controles, título, logo ou links), vídeo em `data-yt="Wvw02ExL6Ug"`, formato 9:16. Começa mudo em autoplay com o aviso "Seu vídeo já começou / Clique para ativar o som"; o clique volta ao início com som. Clique no vídeo pausa/continua. Barra de tempo fina e só visual (`fakeProg`). Mesmo player do site irmão; não trocar sem pedido explícito.
+- **Sem trava** da página e sem timer: o texto abre inteiro e rola normalmente. Barra fina de progresso de leitura no topo. Seções aparecem ao rolar (`.rv`, respeita `prefers-reduced-motion`).
+- **Botões `.js-cta`**: rolam até a caixa de preço (`.price-box`); só o botão da caixa de preço vai para `checkoutUrl`.
+- **Caixa de preço**: "Aproveite a oferta de lançamento: de ~~R$ 197~~ por apenas R$ 127 ou 12x de R$ 13,13".
+- A prévia em Artifact não carrega o YouTube (bloqueado pelo ambiente); o vídeo só aparece de verdade no site publicado.
 
 ## Rastreamento
 - **Google Tag Manager**: `GTM-PJZ6Q3DW`. Eventos no `dataLayer`: `whatsapp_click`, `scroll_depth` (`scroll_percent`).

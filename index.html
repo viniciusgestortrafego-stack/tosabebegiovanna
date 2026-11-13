@@ -87,6 +87,29 @@ h2{font-size:clamp(28px,5vw,42px)}
 .hero h1 em{font-style:normal;color:#E8A98B}
 .hero .sub{max-width:52ch;margin:22px auto 0;color:#CFC6B7;font-size:clamp(17px,2.2vw,19px)}
 .hero .fig{max-width:440px;margin:34px auto 0;border:1px solid rgba(154,75,51,.7)}
+
+/* Player da VSL (YouTube sem cara de YouTube: sem controles, sem barra de tempo do YouTube, sem título/logo) */
+.vsl{position:relative;width:min(360px,100%);aspect-ratio:9/16;margin:34px auto 0;border-radius:17px;overflow:hidden;background:var(--char-2);border:1px solid rgba(154,75,51,.7);box-shadow:0 30px 60px -30px rgba(0,0,0,.7)}
+@media(min-width:900px){.vsl{width:398px;border-width:3px}}
+.vsl-frame{position:absolute;left:0;right:0;top:-70px;height:calc(100% + 140px);pointer-events:none}
+.vsl-frame iframe{width:100%;height:100%;border:0;display:block}
+.vsl-cover{position:absolute;inset:0;background:var(--char-2);transition:opacity .5s;z-index:1}
+.vsl.is-on .vsl-cover{opacity:0;pointer-events:none}
+.vsl-click{position:absolute;inset:0;z-index:2;cursor:pointer;background:transparent;border:0;padding:0;-webkit-tap-highlight-color:transparent}
+.vsl-ov{position:absolute;inset:0;z-index:3;display:none;place-items:center;text-align:center;color:#fff;cursor:pointer;padding:24px}
+.vsl-ov.show{display:grid}
+.vsl-ov.dim{background:rgba(18,16,15,.55)}
+.vsl-ov .box{background:rgba(154,75,51,.94);border-radius:16px;padding:22px 26px;box-shadow:0 18px 40px -16px rgba(0,0,0,.7);max-width:250px}
+.vsl-ov .box p{margin:0;font-size:15px;line-height:1.35;font-weight:600}
+.vsl-ov .box small{display:block;font-size:12px;opacity:.85;margin-bottom:8px;letter-spacing:.06em;text-transform:uppercase}
+.vsl-ov .ico{width:62px;height:62px;margin:6px auto 10px;display:block;animation:vslPulse 1.4s ease-in-out infinite}
+.vsl-ov .bigplay{width:84px;height:84px;border-radius:50%;background:rgba(154,75,51,.94);display:grid;place-items:center;margin:0 auto 12px}
+.vsl-ov .bigplay svg{width:34px;height:34px;margin-left:5px;color:#fff}
+.vsl-ov .lbl{font-size:13px;letter-spacing:.12em;text-transform:uppercase;font-weight:600}
+.vsl-bar{position:absolute;left:0;right:0;bottom:0;height:9px;z-index:4;background:rgba(255,255,255,.22);pointer-events:none}
+.vsl-bar i{display:block;height:100%;width:0;background:#9A4B33;box-shadow:0 0 8px rgba(154,75,51,.8)}
+@keyframes vslPulse{0%,100%{transform:scale(1)}50%{transform:scale(1.1)}}
+@media(prefers-reduced-motion:reduce){.vsl-ov .ico{animation:none}}
 .hero .cta-row{margin-top:34px}
 .hero::before{content:"";position:absolute;width:700px;height:700px;left:50%;top:120px;margin-left:-350px;background:radial-gradient(circle,rgba(154,75,51,.28),transparent 62%);pointer-events:none}
 .hero>.wrap{position:relative;z-index:1}
@@ -223,6 +246,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <symbol id="i-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9.5"/><path d="M7.8 12.4l3 3 5.4-6.2"/></symbol>
   <symbol id="i-shield" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l7.5 3v5.5c0 4.5-3.2 8-7.5 9.5-4.3-1.5-7.5-5-7.5-9.5V6L12 3z"/><path d="M8.8 12.2l2.2 2.2 4.2-4.6"/></symbol>
   <symbol id="i-clock" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><circle cx="12" cy="12" r="9.5"/><path d="M12 7v5l3.2 2"/></symbol>
+  <symbol id="i-play" viewBox="0 0 24 24" fill="currentColor"><path d="M7 4.5v15l13-7.5z"/></symbol>
   <symbol id="i-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></symbol>
   <symbol id="i-star" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"><path d="M12 3.5l2.6 5.4 5.9.8-4.3 4.1 1 5.8L12 16.8l-5.2 2.8 1-5.8L3.5 9.7l5.9-.8L12 3.5z"/></symbol>
 </svg>
@@ -236,7 +260,26 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <span class="tag">Tosa Bebê Shih Tzu</span>
     <h1>Aprenda a executar a <em>tosa bebê</em> com um passo a passo que <em>você consegue repetir</em> em todo atendimento.</h1>
     <p class="sub">Um curso prático de cerca de 2 horas, com a groomer Giovanna Rivaroli: do banho ao rostinho redondo, tudo feito na frente da câmera, em um cão de verdade.</p>
-    <figure class="fig"><img src="web/bruninho-giovanna.jpg" alt="Giovanna Rivaroli ao lado do Bruninho, Shih Tzu com tosa bebê e gravata listrada" width="1000" height="1137" fetchpriority="high"></figure>
+    <!-- VSL em formato story (9:16) -->
+    <div class="vsl" id="vsl" data-yt="Wvw02ExL6Ug">
+      <div class="vsl-frame"><div id="vslPlayer"></div></div>
+      <div class="vsl-cover"></div>
+      <button class="vsl-click" type="button" aria-label="Pausar ou continuar o vídeo"></button>
+      <div class="vsl-ov dim show" id="vslSound">
+        <div class="box">
+          <small>Seu vídeo já começou</small>
+          <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M11 5 6 9H2v6h4l5 4z" fill="#fff"/><path d="m23 9-6 6M17 9l6 6"/></svg>
+          <p>Clique para ativar o som</p>
+        </div>
+      </div>
+      <div class="vsl-ov dim" id="vslPaused">
+        <div><div class="bigplay"><svg><use href="#i-play"/></svg></div><span class="lbl">Continuar assistindo</span></div>
+      </div>
+      <div class="vsl-ov dim" id="vslEnded">
+        <div><div class="bigplay"><svg><use href="#i-play"/></svg></div><span class="lbl">Assistir novamente</span></div>
+      </div>
+      <div class="vsl-bar" aria-hidden="true"><i id="vslBar"></i></div>
+    </div>
     <div class="cta-row"><a class="btn js-cta" href="#oferta">Quero dominar a tosa bebê <svg><use href="#i-arrow"/></svg></a></div>
     <div class="facts"><span><svg><use href="#i-clock"/></svg>Cerca de 2 horas de aula</span><span><svg><use href="#i-shield"/></svg>Garantia de 7 dias</span></div>
   </div>
@@ -287,6 +330,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <li><small>Etapa 04</small><b>Acabamento e finalização</b><span>Os detalhes que padronizam o resultado, para você repetir a cada atendimento.</span></li>
       <li><small>Etapa 05</small><b>Rostinho redondo</b><span>A construção do rosto redondo, passo a passo.</span></li>
     </ol>
+    <figure class="fig rv"><img src="web/bruninho-giovanna.jpg" alt="Giovanna Rivaroli ao lado do Bruninho, Shih Tzu com tosa bebê e gravata listrada" width="1000" height="1137" loading="lazy"><figcaption>Giovanna e o Bruninho, o cão acompanhado no curso.</figcaption></figure>
     <!-- Mais vídeos curtos do Bruninho (clipes mudos em loop) podem entrar aqui, no mesmo formato -->
     <figure class="fig rv"><video id="take" muted loop playsinline preload="metadata" poster="web/bruninho-take-poster.jpg" aria-label="Bruninho, Shih Tzu macho, com a tosa bebê finalizada"><source src="web/bruninho-take.mp4" type="video/mp4"></video><figcaption>O Bruninho, acompanhado do início ao fim no curso.</figcaption></figure>
     <div class="duo stack rv">
@@ -384,7 +428,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <div class="panel price-box rv">
       <div class="from">Investimento</div>
       <div class="price"><sup>R$</sup>127</div>
-      <p class="inst">à vista, ou em até <b>12x de R$&nbsp;13,13</b> no cartão</p>
+      <p class="inst">Aproveite a oferta de lançamento: de <s>R$&nbsp;197</s> por apenas <b>R$&nbsp;127</b> ou <b>12x de R$&nbsp;13,13</b></p>
       <a class="btn block js-buy" href="#">Quero aprender a técnica <svg><use href="#i-arrow"/></svg></a>
       <p class="guarantee"><svg><use href="#i-shield"/></svg><span><b style="color:var(--ink)">Garantia incondicional de 7 dias.</b> Reembolso total, sem burocracia.</span></p>
       <a class="wa" id="waLink" href="#" target="_blank" rel="noopener" hidden>Ficou alguma dúvida? Nos chame no WhatsApp</a>
@@ -459,6 +503,16 @@ const CONFIG = {
 };
 
 /* Botões "Quero…" levam à oferta; só o botão da caixa de preço vai ao checkout */
+/* Botões "Quero…" rolam até a caixa de preço */
+const priceBox = document.querySelector(".price-box");
+document.querySelectorAll(".js-cta").forEach(a => {
+  a.setAttribute("href", "#oferta");
+  a.addEventListener("click", e => {
+    e.preventDefault();
+    (priceBox || document.getElementById("oferta")).scrollIntoView({ behavior: "smooth", block: "center" });
+  });
+});
+
 const buy = document.querySelector(".js-buy");
 if (CONFIG.checkoutUrl) buy.setAttribute("href", CONFIG.checkoutUrl);
 else buy.addEventListener("click", e => e.preventDefault());
@@ -516,6 +570,47 @@ if ("IntersectionObserver" in window) {
   const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { e.target.classList.add("in"); io.unobserve(e.target); } }), { rootMargin: "0px 0px -8% 0px" });
   rv.forEach(n => io.observe(n));
 } else rv.forEach(n => n.classList.add("in"));
+</script>
+<script>
+/* VSL: player do YouTube com cara de player próprio.
+   Começa mudo em autoplay; ao clicar em "ativar o som" volta pro início com som.
+   Clique no vídeo pausa/continua. Sem controles, sem link pro YouTube. Não trava a página. */
+(function(){
+  var box=document.getElementById('vsl'); if(!box) return;
+  var id=box.getAttribute('data-yt'), player, ready=false, unmuted=false;
+  var ovSound=document.getElementById('vslSound'), ovPause=document.getElementById('vslPaused'), ovEnd=document.getElementById('vslEnded');
+  var hit=box.querySelector('.vsl-click');
+  var barEl=document.getElementById('vslBar');
+  /* Barra "rápida no começo": nos primeiros 20% do vídeo já chega a 55%, depois segue devagar até o fim */
+  function fakeProg(t){ t=Math.max(0,Math.min(1,t)); return t<0.2 ? 4.9375*t - 10.9375*t*t : 0.55 + 0.45*(t-0.2)/0.8; }
+  function show(el){[ovSound,ovPause,ovEnd].forEach(function(o){o.classList.toggle('show',o===el)})}
+  function startWithSound(){
+    if(!ready) return;
+    unmuted=true; player.unMute(); player.setVolume(100); player.seekTo(0,true); player.playVideo(); show(null);
+  }
+  ovSound.addEventListener('click',startWithSound);
+  ovPause.addEventListener('click',function(){ if(ready){player.playVideo(); show(null);} });
+  ovEnd.addEventListener('click',function(){ if(ready){player.seekTo(0,true); player.playVideo(); show(null);} });
+  hit.addEventListener('click',function(){
+    if(!ready) return;
+    if(!unmuted){ startWithSound(); return; }
+    if(player.getPlayerState()===1){ player.pauseVideo(); show(ovPause); } else { player.playVideo(); show(null); }
+  });
+  window.onYouTubeIframeAPIReady=function(){
+    player=new YT.Player('vslPlayer',{
+      host:'https://www.youtube-nocookie.com', videoId:id,
+      playerVars:{autoplay:1,mute:1,controls:0,disablekb:1,fs:0,rel:0,modestbranding:1,iv_load_policy:3,playsinline:1,cc_load_policy:0,showinfo:0,origin:location.origin},
+      events:{
+        onReady:function(e){ ready=true; setInterval(function(){ var d=player.getDuration(); if(d) barEl.style.width=Math.min(100,fakeProg(player.getCurrentTime()/d)*100)+'%'; },250); e.target.mute(); e.target.playVideo(); },
+        onStateChange:function(e){
+          if(e.data===1) box.classList.add('is-on');
+          if(e.data===0){ if(!unmuted){ player.seekTo(0,true); player.playVideo(); } else show(ovEnd); }
+        }
+      }
+    });
+  };
+  var t=document.createElement('script'); t.src='https://www.youtube.com/iframe_api'; document.head.appendChild(t);
+})();
 </script>
 </body>
 </html>
